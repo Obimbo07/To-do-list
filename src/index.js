@@ -1,6 +1,4 @@
-import _ from 'lodash';
 import './style.css';
-import { even } from 'prelude-ls';
 
 const tasks = [
   {

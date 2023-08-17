@@ -1,15 +1,14 @@
 body {
-    color: #000;
+  color: #000;
 }
-
 
 .header {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
-.list-container{
-    border: solid 1px;
+.list-container {
+  border: solid 1px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -18,45 +17,46 @@ body {
 }
 
 #task-section {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .list-section {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    gap: 200px;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  gap: 200px;
 }
 
 #input-container {
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
 }
 
 #task-input {
-    width: 100%;
-    border: 0;
+  width: 100%;
+  border: 0;
 }
+
 .submit-icon {
-    position: relative;
-    right: 3%;
-    top: 8%;
-    cursor: pointer;
+  position: relative;
+  right: 3%;
+  top: 8%;
+  cursor: pointer;
 }
 
 .clearBtn-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgb(203, 203, 202);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(203, 203, 202);
 }
 
 .clear-btn {
-    justify-content: center;
-    display: contents;
+  justify-content: center;
+  display: contents;
 }
