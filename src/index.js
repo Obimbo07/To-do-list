@@ -6,6 +6,11 @@ const tasks = [
     complete: true,
     description: 'bbbbbb',
   },
+  {
+    index: 'broom',
+    complete: true,
+    description: 'bbbbbb',
+  },
 ];
 function populateTaskList() {
   const taskSection = document.getElementById('task-section');
