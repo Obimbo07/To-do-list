@@ -150,6 +150,13 @@ To run tests, run the following command:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[Implement a time section to specify task duration]**
+- [ ] **[A remainder to enable user get notified about task schedule]**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
