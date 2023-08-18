@@ -2,22 +2,34 @@ body {
   color: #000;
 }
 
+.logo {
+  padding: 6px;
+}
 .header {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ddd;
 }
 
+#refresh-button {
+  display: contents;
+}
+
+#refresh-icon {
+  padding: 20px;
+}
+
+
 .list-container {
-  border: solid 1px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 55);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
 }
 
 #task-section {
-  padding: 30px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -31,11 +43,24 @@ body {
   gap: 200px;
 }
 
-#input-container {
-  position: relative;
-  display: flex;
+.lists {
+  border: 1px solid #ddd;
+  width: 100%;
 }
 
+#input-container {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+.fa-ellipsis-v {
+  padding: 10px;
+}
 #task-input {
   width: 100%;
   border: 0;
@@ -43,7 +68,7 @@ body {
 
 .submit-icon {
   position: relative;
-  right: 3%;
+  right: -1%;
   top: 8%;
   cursor: pointer;
 }
@@ -53,10 +78,12 @@ body {
   flex-direction: row;
   justify-content: center;
   padding: 20px;
-  background-color: rgb(203, 203, 202);
+  background-color: rgb(222, 222, 222);
 }
 
 .clear-btn {
   justify-content: center;
   display: contents;
+  font: 200;
 }
+

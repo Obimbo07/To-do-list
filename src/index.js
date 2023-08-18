@@ -2,12 +2,12 @@ import './style.css';
 
 const tasks = [
   {
-    index: 'broom',
+    index: '0',
     complete: true,
     description: 'bbbbbb',
   },
   {
-    index: 'broom',
+    index: '1',
     complete: true,
     description: 'bbbbbb',
   },
@@ -20,9 +20,9 @@ function populateTaskList() {
     taskList.classList.add('lists');
     taskList.innerHTML = `
      <ul class="list-section">
-       <li>${index}</li>
-       <li>${task.complete ? 'Yes' : 'No'}</li>
+       <li><input type="checkbox" ${task.complete ? 'checked' : ''}></li>
        <li>${task.description}</li>
+       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
      </ul>
      `;
     taskSection.appendChild(taskList);
