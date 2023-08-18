@@ -1,0 +1,88 @@
+body {
+  color: #000;
+}
+
+.logo {
+  padding: 6px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+}
+
+#refresh-button {
+  display: contents;
+}
+
+#refresh-icon {
+  padding: 20px;
+}
+
+.list-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 55);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#task-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.list-section {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  gap: 200px;
+}
+
+.lists {
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+#input-container {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+.fa-ellipsis-v {
+  padding: 10px;
+}
+
+#task-input {
+  width: 100%;
+  border: 0;
+}
+
+.submit-icon {
+  position: relative;
+  right: -1%;
+  top: 8%;
+  cursor: pointer;
+}
+
+.clearBtn-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(222, 222, 222);
+}
+
+.clear-btn {
+  justify-content: center;
+  display: contents;
+}
