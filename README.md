@@ -189,7 +189,6 @@ Thank you github for the github pages
 ## ❓ FAQ <a name="faq"></a>
 
 
-
 - **[Can I contribute to the project?]**
 
   - [Yes, we welcome contributions from the open source community]

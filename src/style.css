@@ -5,6 +5,7 @@ body {
 .logo {
   padding: 6px;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -19,14 +20,13 @@ body {
   padding: 20px;
 }
 
-
 .list-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 55);
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 #task-section {
@@ -61,6 +61,7 @@ input::placeholder {
 .fa-ellipsis-v {
   padding: 10px;
 }
+
 #task-input {
   width: 100%;
   border: 0;
@@ -84,6 +85,4 @@ input::placeholder {
 .clear-btn {
   justify-content: center;
   display: contents;
-  font: 200;
 }
-

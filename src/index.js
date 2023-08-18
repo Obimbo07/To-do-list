@@ -15,7 +15,7 @@ const tasks = [
 function populateTaskList() {
   const taskSection = document.getElementById('task-section');
   taskSection.innerHTML = '';
-  tasks.forEach((task, index) => {
+  tasks.forEach((task) => {
     const taskList = document.createElement('div');
     taskList.classList.add('lists');
     taskList.innerHTML = `
