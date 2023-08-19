@@ -128,7 +128,7 @@ To run tests, run the following command:
 
 ### Deployment
 
- Here is a link to the live demo of the website [Click here](https://obimbo07.github.io/To-do-list/) 
+ Here is a link to the live demo of the website [Click here](https://obimbo07.github.io/To-do-list/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -141,7 +141,7 @@ To run tests, run the following command:
 👤 **Author1**
 
 - GitHub: [@Obimbo07](https://github.com/Obimbo07)
-- Twitter: [@Austine](https://twitter.com/austsine)
+- Twitter: [@Austine](https://twitter.com/AustinObimbo)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/austin-obimbo-9a613623a/)
 
 

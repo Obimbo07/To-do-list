@@ -12,9 +12,13 @@ export default class AddList {
 
       for (let i = 0; i < myCrud.todoDetails.length; i += 1) {
         row.innerHTML += `<li class="removeLine">
-                            <div class="rowData" > <input class="edit-text" type="checkbox"  ${myCrud.todoDetails[i].completed ? 'checked' : ''} /> 
+                            <div class="rowData" > <input class="edit-text" type="checkbox"  ${myCrud.todoDetails[i].completed ? 'checked' : ''} />
                             <input class="editBtn" type="text" value="${myCrud.todoDetails[i].title}" data-index="${i}" readonly /> </div>
-                            <button id="${i}" class="remove-btn"> <i class="fas fa-trash"></i></button>
+                            <button id="${i}" class="remove-btn"> 
+                            <i class="fas fa-trash"></i></button>
+                            <button id="${i}" class="ecllipsis">
+                            <i class="fas fa-ellipsis-v"></i></button>
+                            
                         </li> <hr>`;
       }
     }
