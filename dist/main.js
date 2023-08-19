@@ -310,68 +310,104 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `body {
-  color: #000;
+___CSS_LOADER_EXPORT___.push([module.id, `* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
 }
 
-.header {
-  width: 100%;
-  text-align: center;
+body {
+  background-color: #eee;
 }
 
-.list-container {
-  border: solid 1px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 55);
-}
-
-#task-section {
-  padding: 30px;
+.card {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
+  width: 75%;
+  margin: 10rem auto;
+  background-color: #fff;
+  border-radius: 20px  20px;
+  padding: 5%;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 10px 10px;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.lists li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
   align-items: center;
 }
 
-.list-section {
+input {
+  border: none;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.addData {
   display: flex;
-  list-style: none;
   justify-content: space-between;
-  gap: 200px;
+  padding: 12px;
 }
 
-#input-container {
-  position: relative;
+button {
+  border: none;
+  background-color: #fff;
+}
+
+.rowData {
   display: flex;
+  gap: 10px;
 }
 
-#task-input {
-  width: 100%;
-  border: 0;
-}
-
-.submit-icon {
-  position: relative;
-  right: 3%;
-  top: 8%;
-  cursor: pointer;
-}
-
-.clearBtn-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 20px;
-  background-color: rgb(203, 203, 202);
+.completed {
+  text-decoration: 2px line-through red;
 }
 
 .clear-btn {
-  justify-content: center;
-  display: contents;
+  padding: 20px 0;
+}
+
+.clear-btn:hover {
+  color: red;
+}
+
+.fa-trash {
+  color: gray;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+
+.fa-level-down-alt::before,
+.fa-turn-down::before {
+  content: "\\f3be";
+  color: greenyellow;
+}
+
+.fa-rotate::before,
+.fa-sync-alt::before {
+  content: "\\f2f1";
+  color: cornflowerblue;
 }
 `, ""]);
 // Exports
@@ -478,6 +514,135 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AddList)
+/* harmony export */ });
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _NP_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+
+
+
+const myCrud = new _NP_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
+
+class AddList {
+  displayList() {
+    const reciveData = localStorage.getItem('todoData');
+    const row = document.getElementById('lists');
+    row.innerHTML = '';
+    if (reciveData && JSON.parse(reciveData).length > 0) {
+      myCrud.todoDetails = JSON.parse(reciveData);
+
+      for (let i = 0; i < myCrud.todoDetails.length; i += 1) {
+        row.innerHTML += `<li class="removeLine">
+                            <div class="rowData" > <input class="edit-text" type="checkbox"  ${myCrud.todoDetails[i].completed ? 'checked' : ''} /> 
+                            <input class="editBtn" type="text" value="${myCrud.todoDetails[i].title}" data-index="${i}" readonly /> </div>
+                            <button id="${i}" class="remove-btn"> <i class="fas fa-trash"></i></button>
+                        </li> <hr>`;
+      }
+    }
+    // ------------------Remove Row Code-------------------------------------
+    const removeBtn = document.querySelectorAll('.remove-btn');
+    removeBtn.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        myCrud.deleteRow(index, this);
+      });
+    });
+
+    // -----------------Edit input Code--------------------------------
+    const editBtn = document.querySelectorAll('.editBtn');
+    editBtn.forEach((editElement) => {
+      editElement.addEventListener('click', () => {
+        const index = editElement.getAttribute('data-index');
+        const editInput = document.querySelector(`input.editBtn[data-index="${index}"]`);
+        editInput.readOnly = false;
+        editInput.addEventListener('blur', (event) => {
+          const newTitle = event.target.value;
+          myCrud.updateRowTitle(index, newTitle, this);
+          event.target.readOnly = true;
+        });
+      });
+    });
+
+    // -------------------checkbox code--------------------------
+    const checkboxes = document.querySelectorAll('.edit-text');
+    checkboxes.forEach((checkbox) => {
+      const index = checkbox.parentNode.querySelector('.editBtn').getAttribute('data-index');
+      const editInput = checkbox.parentNode.querySelector('.editBtn');
+      const { completed } = myCrud.todoDetails[index];
+
+      checkbox.checked = completed;
+      editInput.classList.toggle('completed', completed);
+
+      checkbox.addEventListener('change', (event) => {
+        const isChecked = event.target.checked;
+        editInput.classList.toggle('completed', isChecked);
+        myCrud.todoDetails[index].completed = isChecked;
+        localStorage.setItem('todoData', JSON.stringify(myCrud.todoDetails));
+      });
+    });
+    // -----------------ClearCompletedBtn-----------------------------------
+    document.getElementById('clearCompletedBtn').addEventListener('click', () => {
+      myCrud.todoDetails = myCrud.removeCompletedTask();
+      this.displayList();
+    });
+  }
+}
+
+/***/ }),
+/* 12 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ CrudOperations)
+/* harmony export */ });
+class CrudOperations {
+  constructor() {
+    const previousData = localStorage.getItem('todoData');
+    this.todoDetails = previousData ? JSON.parse(previousData) : [];
+  }
+
+  addRow(title, completed, index) {
+    const todo = { title, completed, index };
+    this.todoDetails.push(todo);
+    localStorage.setItem('todoData', JSON.stringify(this.todoDetails));
+  }
+
+  deleteRow(index, myList) {
+    this.todoDetails.splice(index, 1);
+    for (let i = index; i < this.todoDetails.length; i += 1) {
+      this.todoDetails[i].index = i + 1;
+    }
+    localStorage.setItem('todoData', JSON.stringify(this.todoDetails));
+    myList.displayList();
+  }
+
+  updateRowTitle(index, newTitle, myList) {
+    this.todoDetails[index].title = newTitle;
+    localStorage.setItem('todoData', JSON.stringify(this.todoDetails));
+    myList.displayList();
+  }
+
+  removeCompletedTask() {
+    const incompleteTasks = this.todoDetails.filter((item) => item.completed === false);
+    this.todoDetails = incompleteTasks;
+    this.todoDetails.forEach((todo, index) => {
+      todo.index = index + 1;
+    });
+
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('todoData', JSON.stringify(this.todoDetails));
+    }
+
+    return this.todoDetails;
+  }
+}
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -557,56 +722,28 @@ var __webpack_exports__ = {};
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _modules_do_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _modules_NP_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+
+ // eslint-disable-line import/no-unresolved
 
 
-const tasks = [
-  {
-    index: 'broom',
-    complete: true,
-    description: 'bbbbbb',
-  },
-];
-function populateTaskList() {
-  const taskSection = document.getElementById('task-section');
-  taskSection.innerHTML = '';
-  tasks.forEach((task, index) => {
-    const taskList = document.createElement('div');
-    taskList.classList.add('lists');
-    taskList.innerHTML = `
-     <ul class="list-section">
-       <li>${index}</li>
-       <li>${task.complete ? 'Yes' : 'No'}</li>
-       <li>${task.description}</li>
-     </ul>
-     `;
-    taskSection.appendChild(taskList);
-  });
-}
+const myCrud = new _modules_NP_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
+const myList = new _modules_do_js__WEBPACK_IMPORTED_MODULE_1__["default"]();
 
-populateTaskList();
+window.addEventListener('DOMContentLoaded', myList.displayList.bind(myList));
 
-function submitTask() {
-  const taskInput = document.getElementById('task-input');
-  if (taskInput.value.trim() !== '') {
-    const newTask = {
-      description: taskInput.value,
-      complete: false,
-      index: tasks.length,
-    };
-    tasks.push(newTask);
-    taskInput.value = '';
-    populateTaskList();
-  }
-}
-
-const taskInput = document.getElementById('task-input');
-
-taskInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    submitTask();
+const addButton = document.getElementById('add-button');
+addButton.addEventListener('click', () => {
+  const task = document.getElementById('task').value.trim();
+  const completed = false;
+  const index = myCrud.todoDetails.length + 1;
+  if (task) {
+    myCrud.addRow(task, completed, index);
+    myList.displayList();
+    document.getElementById('task').value = '';
   }
 });
-
 })();
 
 /******/ })()

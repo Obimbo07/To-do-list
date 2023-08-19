@@ -1,54 +1,20 @@
 import './style.css';
+import AddList from './modules/do.js';
+import CrudOperations from './modules/np.js';
 
-const tasks = [
-  {
-    index: '0',
-    complete: true,
-    description: 'bbbbbb',
-  },
-  {
-    index: '1',
-    complete: true,
-    description: 'bbbbbb',
-  },
-];
-function populateTaskList() {
-  const taskSection = document.getElementById('task-section');
-  taskSection.innerHTML = '';
-  tasks.forEach((task) => {
-    const taskList = document.createElement('div');
-    taskList.classList.add('lists');
-    taskList.innerHTML = `
-     <ul class="list-section">
-       <li><input type="checkbox" ${task.complete ? 'checked' : ''}></li>
-       <li>${task.description}</li>
-       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-     </ul>
-     `;
-    taskSection.appendChild(taskList);
-  });
-}
+const myCrud = new CrudOperations();
+const myList = new AddList();
 
-populateTaskList();
+window.addEventListener('DOMContentLoaded', myList.displayList.bind(myList));
 
-function submitTask() {
-  const taskInput = document.getElementById('task-input');
-  if (taskInput.value.trim() !== '') {
-    const newTask = {
-      description: taskInput.value,
-      complete: false,
-      index: tasks.length,
-    };
-    tasks.push(newTask);
-    taskInput.value = '';
-    populateTaskList();
-  }
-}
-
-const taskInput = document.getElementById('task-input');
-
-taskInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    submitTask();
+const addButton = document.getElementById('add-button');
+addButton.addEventListener('click', () => {
+  const task = document.getElementById('task').value.trim();
+  const completed = false;
+  const index = myCrud.todoDetails.length + 1;
+  if (task) {
+    myCrud.addRow(task, completed, index);
+    myList.displayList();
+    document.getElementById('task').value = '';
   }
 });

@@ -1,88 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
 body {
-  color: #000;
+  background-color: #eee;
 }
 
-.logo {
-  padding: 6px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid #ddd;
-}
-
-#refresh-button {
-  display: contents;
-}
-
-#refresh-icon {
-  padding: 20px;
-}
-
-.list-container {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 55);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-#task-section {
+.card {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
+  width: 75%;
+  margin: 10rem auto;
+  background-color: #fff;
+  border-radius: 20px  20px;
+  padding: 5%;
 }
 
-.list-section {
+.head {
   display: flex;
-  list-style: none;
+  align-items: center;
   justify-content: space-between;
-  gap: 200px;
+  padding: 0 10px 10px 10px;
 }
 
 .lists {
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.lists li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  align-items: center;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.addData {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+}
+
+.rowData {
+  display: flex;
+  gap: 10px;
   width: 100%;
 }
 
-#input-container {
-  display: flex;
-  padding: 20px;
-  border: 1px solid #ddd;
-}
-
-input::placeholder {
-  font-style: italic;
-}
-
-.fa-ellipsis-v {
-  padding: 10px;
-}
-
-#task-input {
-  width: 100%;
-  border: 0;
-}
-
-.submit-icon {
-  position: relative;
-  right: -1%;
-  top: 8%;
-  cursor: pointer;
-}
-
-.clearBtn-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 20px;
-  background-color: rgb(222, 222, 222);
+.completed {
+  text-decoration: 2px line-through red;
 }
 
 .clear-btn {
-  justify-content: center;
-  display: contents;
+  padding: 20px 0;
+}
+
+.clear-btn:hover {
+  color: red;
+}
+
+.fa-trash {
+  color: gray;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+
+.fa-level-down-alt::before,
+.fa-turn-down::before {
+  content: "\f3be";
+  color: greenyellow;
+}
+
+.fa-rotate::before,
+.fa-sync-alt::before {
+  content: "\f2f1";
+  color: cornflowerblue;
+}
+
+.removeLine {
+  gap: 16px;
+}
+
+.editBtn {
+  width: 100%;
 }
