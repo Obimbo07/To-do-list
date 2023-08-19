@@ -1,5 +1,4 @@
-import '../style.css';
-import CrudOperations from './NP.js';
+import CrudOperations from './np.js';
 
 const myCrud = new CrudOperations();
 

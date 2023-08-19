@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>To-do List</title>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style.css">
 <script defer src="main.js"></script></head>
 <body>
-    <div class="list-container">
-    <div class="header">
-    <h3 class="logo">Today's To Do</h3>
-    <button id="refresh-button" class="refresh-button">
-        <i id="refresh-icon" class="fas fa-sync-alt"></i>
-      </button>      
-    </div>
-    
-    <div id="input-container">
-        <input type="text" id="task-input" placeholder="Add to your List...">
-        <span id="submit-icon" class="submit-icon">&#8629;</span>
-      </div>
-    <div id="task-section">
-        <!---lists display dynamically here-->
-    </div>
-    <div class="clearBtn-section">
-    <button class="clear-btn" type="reset">Clear all completed</button>
-    </div>
-    </div>
+    <section class="card">
+        <div class="head">
+            <p>Today's To Do</p>
+            <i class="fa-solid fa-rotate rotate"></i>
+        </div>
+        <hr>
+        <div class="addData">
+            <input id="task" type="text" placeholder="Add to your List...." required>
+            <button type="button"> <i id="add-button" class="fa-solid fa-turn-down turnLeft"></i> </button>
+        </div>
+        <hr>
+        <ul id="lists" class="lists">
+                
+        </ul>
+        <button id="clearCompletedBtn" class="clear-btn" type="button">Clear all completed</button>
+    </section>
+
+    <script type="module" src="index.js"></script>
+    <script type="module" src="./modules/crud.js"></script>
+    <script type="module" src="./modules/tudo.js"></script>
 </body>
 </html>

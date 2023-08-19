@@ -64,6 +64,7 @@ button {
 .rowData {
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
 .completed {
@@ -96,4 +97,12 @@ button {
 .fa-sync-alt::before {
   content: "\f2f1";
   color: cornflowerblue;
+}
+
+.removeLine {
+  gap: 16px;
+}
+
+.editBtn {
+  width: 100%;
 }
