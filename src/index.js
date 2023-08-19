@@ -1,5 +1,6 @@
 import './style.css';
-import AddList from './modules/DO.JS';
+// eslint disable import/no-unresolved
+import AddList from './modules/DO.js';
 import CrudOperations from './modules/NP.js';
 
 const myCrud = new CrudOperations();
