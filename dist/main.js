@@ -1,7 +1,52 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
-/* 0 */,
+/* 0 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   populateTaskList: () => (/* binding */ populateTaskList),
+/* harmony export */   tasks: () => (/* binding */ tasks)
+/* harmony export */ });
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _crud_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+
+
+
+
+const tasks = [];
+function populateTaskList() {
+  const taskSection = document.getElementById('task-section');
+  taskSection.innerHTML = '';
+  tasks.forEach((task) => {
+    const taskList = document.createElement('div');
+    taskList.classList.add('lists');
+    taskList.innerHTML = `
+     <ul class="list-section">
+       <li><input type="checkbox" ${task.complete ? 'checked' : ''}></li>
+       <li>${task.description}</li>
+       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+     </ul>
+     `;
+    taskSection.appendChild(taskList);
+  });
+}
+
+populateTaskList();
+
+const taskInput = document.getElementById('task-input');
+
+taskInput.addEventListener('click', (event) => {
+  if (event.key === 'Enter') {
+    (0,_crud_js__WEBPACK_IMPORTED_MODULE_1__.submitTask)();
+  }
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({ populateTaskList });
+
+/***/ }),
 /* 1 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -315,22 +360,35 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   color: #000;
 }
 
+.logo {
+  padding: 6px;
+}
+
 .header {
-  width: 100%;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+}
+
+#refresh-button {
+  display: contents;
+}
+
+#refresh-icon {
+  padding: 20px;
 }
 
 .list-container {
-  border: solid 1px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 55);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  min-width: 600px;
 }
 
 #task-section {
-  padding: 30px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -344,9 +402,23 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   gap: 200px;
 }
 
+.lists {
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
 #input-container {
-  position: relative;
   display: flex;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+input::placeholder {
+  font-style: italic;
+}
+
+.fa-ellipsis-v {
+  padding: 10px;
 }
 
 #task-input {
@@ -356,7 +428,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
 
 .submit-icon {
   position: relative;
-  right: 3%;
+  right: -1%;
   top: 8%;
   cursor: pointer;
 }
@@ -366,7 +438,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   flex-direction: row;
   justify-content: center;
   padding: 20px;
-  background-color: rgb(203, 203, 202);
+  background-color: rgb(222, 222, 222);
 }
 
 .clear-btn {
@@ -478,6 +550,41 @@ module.exports = function (cssWithMappingToString) {
   return list;
 };
 
+/***/ }),
+/* 11 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   submitTask: () => (/* binding */ submitTask)
+/* harmony export */ });
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+
+
+
+
+function submitTask() {
+    const taskInput = document.getElementById('task-input');
+    
+    if (taskInput.value.trim() !== '') {
+      const newTask = {
+        description: taskInput.value,
+        complete: false,
+        index: _index_js__WEBPACK_IMPORTED_MODULE_0__.tasks.length,
+      };
+      _index_js__WEBPACK_IMPORTED_MODULE_0__.tasks.push(newTask);
+      taskInput.value = '';
+      (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.populateTaskList)();
+    }
+
+}
+
+  
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({ submitTask });
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -552,62 +659,11 @@ module.exports = function (cssWithMappingToString) {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-
-
-const tasks = [
-  {
-    index: 'broom',
-    complete: true,
-    description: 'bbbbbb',
-  },
-];
-function populateTaskList() {
-  const taskSection = document.getElementById('task-section');
-  taskSection.innerHTML = '';
-  tasks.forEach((task, index) => {
-    const taskList = document.createElement('div');
-    taskList.classList.add('lists');
-    taskList.innerHTML = `
-     <ul class="list-section">
-       <li>${index}</li>
-       <li>${task.complete ? 'Yes' : 'No'}</li>
-       <li>${task.description}</li>
-     </ul>
-     `;
-    taskSection.appendChild(taskList);
-  });
-}
-
-populateTaskList();
-
-function submitTask() {
-  const taskInput = document.getElementById('task-input');
-  if (taskInput.value.trim() !== '') {
-    const newTask = {
-      description: taskInput.value,
-      complete: false,
-      index: tasks.length,
-    };
-    tasks.push(newTask);
-    taskInput.value = '';
-    populateTaskList();
-  }
-}
-
-const taskInput = document.getElementById('task-input');
-
-taskInput.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    submitTask();
-  }
-});
-
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __webpack_require__(0);
+/******/ 	
 /******/ })()
 ;

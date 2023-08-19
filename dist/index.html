@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>To-do List</title>
 <script defer src="main.js"></script></head>
 <body>
     <div class="list-container">
     <div class="header">
-    <h1>To-do List</h1>
+    <h3 class="logo">Today's To Do</h3>
+    <button id="refresh-button" class="refresh-button">
+        <i id="refresh-icon" class="fas fa-sync-alt"></i>
+      </button>      
     </div>
     
     <div id="input-container">
-        <input type="text" id="task-input" placeholder="Enter a task">
-        <span id="submit-icon" class="submit-icon" onclick="submitTask()">&#8629;</span>
+        <input type="text" id="task-input" placeholder="Add to your List...">
+        <span id="submit-icon" class="submit-icon">&#8629;</span>
       </div>
-    <div id="task-section"></div>
+    <div id="task-section">
+        <!---lists display dynamically here-->
+    </div>
     <div class="clearBtn-section">
-    <button class="clear-btn" type="reset">Clear content</button>
+    <button class="clear-btn" type="reset">Clear all completed</button>
     </div>
     </div>
 </body>
