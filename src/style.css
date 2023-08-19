@@ -1,87 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300&display=swap');
+
 * {
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
 }
 
-#listSection {
+body {
+  background-color: #eee;
+}
+
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: rgb(246, 251, 255);
+  width: 75%;
+  margin: 10rem auto;
+  background-color: #fff;
+  border-radius: 20px  20px;
+  padding: 5%;
 }
 
-#toDoContainer {
-  width: 100%;
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px 10px 10px;
+}
+
+.lists {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  list-style-type: none;
 }
 
-#toDoList {
-  border: solid 2px rgb(217, 227, 235);
-  background-color: white;
-  padding: 0;
-  width: 50%;
-}
-
-#toDoList li {
-  list-style: none;
-  font-size: 1.5vw;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 4% 4%;
-  border-bottom: 1px solid rgb(217, 227, 235);
+.lists li {
   display: flex;
+  justify-content: space-between;
+  padding: 12px;
   align-items: center;
-  gap: 2%;
 }
 
-#toDoList #addItem {
-  outline: none;
-  border: none;
-  font-size: 1.5vw;
-  padding: 0;
-  width: 100%;
-  font-family: italic;
-  font-style: italic;
-}
-
-#toDoList #clearList {
-  border: none;
-  font-size: 1.5vw;
-  width: 100%;
-  padding: 3%;
-  color: grey;
-}
-
-#addButton {
-  border: none;
-  background: none;
-}
-
-input:hover,
-button:hover,
-i {
-  cursor: pointer;
-}
-
-i {
-  margin-left: auto;
-  color: grey;
-  font-size: small;
-}
-
-.toDoItem label {
-  width: 100%;
-}
-
-.editList {
-  background-color: rgb(241, 241, 158);
-}
-
-.editInput {
+input {
   border: none;
   outline: none;
-  background: none;
-  width: 100%;
-  font-size: 1.5vw;
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+.addData {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+}
+
+.rowData {
+  display: flex;
+  gap: 10px;
+}
+
+.completed {
+  text-decoration: 2px line-through red;
+}
+
+.clear-btn {
+  padding: 20px 0;
+}
+
+.clear-btn:hover {
+  color: red;
+}
+
+.fa-trash {
+  color: gray;
+}
+
+.fa-trash:hover {
+  color: red;
+}
+
+.fa-level-down-alt::before,
+.fa-turn-down::before {
+  content: "\f3be";
+  color: greenyellow;
+}
+
+.fa-rotate::before,
+.fa-sync-alt::before {
+  content: "\f2f1";
+  color: cornflowerblue;
 }
